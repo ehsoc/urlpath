@@ -2,7 +2,6 @@
 package urlpath
 
 import (
-	"errors"
 	"fmt"
 	"path"
 	"strings"
@@ -43,5 +42,5 @@ func DiffChild(parentpath, childpath string) (string, error) {
 		return path.Clean(split[1]), nil
 	}
 
-	return "", errors.New(fmt.Sprintf("urlpath/DiffChild: %q is not child of %q\n", childpath, parentpath))
+	return "", fmt.Errorf("urlpath/DiffChild: %q is not child of %q\n", childpath, parentpath)
 }
